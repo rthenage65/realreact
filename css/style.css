@@ -17,3 +17,22 @@ img {
   width: 50vw;
   margin: 100px 25vw 1000px;
 }
+
+.message {
+  display: none;
+}
+
+/*@keyframes float-on {
+  0%{left: -200px;}
+  50%{left: 30px;}
+  100%{left: 200%;}
+}
+
+.message {
+  position: fixed;
+  top: 0;
+  left: -200px;
+  animation-name: float-on;
+  animation-duration: 3s;
+  animation-delay: 
+}*/
