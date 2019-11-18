@@ -1,0 +1,29 @@
+{
+  "name": "pwa-with-apis",
+  "version": "1.0.0",
+  "description": "Progressive Web App with apis",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon local-server.js localhost 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buckldav/pwa-with-apis.git"
+  },
+  "author": "David Buckley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/buckldav/pwa-with-apis/issues"
+  },
+  "homepage": "https://github.com/buckldav/pwa-with-apis#readme",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^1.19.3",
+    "webcamjs": "^1.0.25",
+    "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {
+    "html2canvas": "^1.0.0-rc.5"
+  }
+}

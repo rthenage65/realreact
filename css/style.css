@@ -1,0 +1,19 @@
+h1 {
+  color: firebrick;
+  padding: 5px;
+  font-size: 50px;
+  text-align: center;
+  font-family: arial;
+}
+
+video {
+  position: fixed;
+  width: 30vw;
+  bottom: 0;
+  right: 0;
+}
+
+img {
+  width: 50vw;
+  margin: 100px 25vw 1000px;
+}
