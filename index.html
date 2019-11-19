@@ -19,6 +19,8 @@
         <video id="live" muted></video>
         <video id="recording" controls></video>
 
+        <div id="filter">No Filter</div>
+
         <!-- could save to canvas and do image manipulation and saving too -->
     </main>    
     <script>
@@ -127,6 +129,27 @@
                 let videoURL = window.URL.createObjectURL(blob);
                 vidSave.src = videoURL;
             }
+            var filter = document.getElementById('filter')
+            var cssFilters = [
+                {name: 'No Filter', css: 'initial'}, 
+                {name: 'Blend', css: 'contrast(50%)'}, 
+                {name: 'Blur', css: 'blur(3px)'}, 
+                {name: 'High Contrast', css: 'contrast(150%)'}, 
+                {name: 'Dim', css: 'brightness(50%)'}, 
+                {name: 'Bright', css: 'brightness(150%)'}, 
+                {name: 'Hue Rotation', css: 'hue-rotate(120deg)'}, 
+                {name: 'Invert', css: 'invert(100%)'}, 
+                {name: 'High Saturation', css: 'saturate(150%)'}, 
+                {name: 'Low Saturation', css: 'grayscale(100%)'}, 
+                {name: 'Sepia', css: 'sepia(100%)'}
+            ]
+            var currentFilter = 0;
+            filter.addEventListener('click', (ev)=>{
+                currentFilter++
+                currentFilter = currentFilter % cssFilters.length
+                recording.style.filter = cssFilters[currentFilter].css
+                filter.innerHTML = cssFilters[currentFilter].name
+            })
         })
         .catch(function(err) { 
             console.log(err.name, err.message); 
