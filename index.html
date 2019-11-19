@@ -17,7 +17,7 @@
         <img src="img/question-mark.png" id="img"></img>
         
         <video id="live" muted></video>
-        <video id="recording" controls></video>
+        <video id="recording"></video>
 
         <div id="filter">No Filter</div>
 
@@ -86,10 +86,11 @@
             
 
             img.addEventListener('click', (ev)=>{
-                if (imgSrc == 'revealed') {
+                if (imgSrc == 'revealed' && mediaRecorder.state == 'recording') {
                     //hide stream, show recording
                     document.getElementById('live').style.display = 'none'
                     document.getElementById('recording').style.display = 'inline'
+                    document.getElementById('filter').style.display = 'inline'
                     mediaRecorder.stop();
                     console.log(mediaRecorder.state);
                 }
@@ -97,6 +98,7 @@
                     //show stream, hide recording
                     document.getElementById('live').style.display = 'inline'
                     document.getElementById('recording').style.display = 'none'
+                    document.getElementById('filter').style.display = 'none'
                     mediaRecorder.start();
                     console.log(mediaRecorder.state);
                     img.src = 'img/3.png'
@@ -140,15 +142,24 @@
                 {name: 'Hue Rotation', css: 'hue-rotate(120deg)'}, 
                 {name: 'Invert', css: 'invert(100%)'}, 
                 {name: 'High Saturation', css: 'saturate(150%)'}, 
-                {name: 'Low Saturation', css: 'grayscale(100%)'}, 
+                {name: 'Low Saturation', css: 'saturate(50%)'}, 
                 {name: 'Sepia', css: 'sepia(100%)'}
             ]
             var currentFilter = 0;
+            // cycle through filters on click
             filter.addEventListener('click', (ev)=>{
                 currentFilter++
                 currentFilter = currentFilter % cssFilters.length
                 recording.style.filter = cssFilters[currentFilter].css
                 filter.innerHTML = cssFilters[currentFilter].name
+            })
+            // pause and play recording on click
+            recording.addEventListener('click', (ev)=>{
+                if (recording.paused) {
+                    recording.play()
+                } else {
+                    recording.pause()
+                }
             })
         })
         .catch(function(err) { 

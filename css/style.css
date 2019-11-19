@@ -11,11 +11,12 @@ video {
   width: 30vw;
   bottom: 0;
   right: 0;
+  display: none;
 }
 
 img {
-  width: 50vw;
-  margin: 100px 25vw 1000px;
+  width: 50%;
+  margin: 100px 25% 1000px;
 }
 
 .message {
@@ -31,6 +32,7 @@ img {
   font-size: 25px;
   font-family: arial;
   text-align: center;
+  display: none;
 }
 
 /*@keyframes float-on {
