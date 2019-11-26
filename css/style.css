@@ -35,7 +35,7 @@ img {
   display: none;
 }
 
-/*@keyframes float-on {
+@keyframes float-on {
   0%{left: -200px;}
   50%{left: 30px;}
   100%{left: 200%;}
@@ -45,7 +45,9 @@ img {
   position: fixed;
   top: 0;
   left: -200px;
+}
+
+.float-on {
   animation-name: float-on;
   animation-duration: 3s;
-  animation-delay: 
-}*/
+}

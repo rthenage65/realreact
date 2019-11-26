@@ -8,6 +8,7 @@ let constraintObj = {
         height: { min: 480, ideal: 720, max: 1080 } 
     } 
 } 
+console.log(navigator.mediaDevices)
 if (navigator.mediaDevices === undefined) {
     navigator.mediaDevices = {}
     navigator.mediaDevices.getUserMedia = function(constraintObj) {
@@ -20,6 +21,7 @@ if (navigator.mediaDevices === undefined) {
         })
     }
 }else{
+    console.log('else')
     navigator.mediaDevices.enumerateDevices()
     .then(devices => {
         devices.forEach(device=>{
@@ -87,6 +89,7 @@ navigator.mediaDevices.getUserMedia(constraintObj)
                     case 1:
                         img.src = 'img/meme.jpg'
                         imgSrc = 'revealed'
+                        document.getElementsByClassName('message').classList.add('float-on')
                         clearInterval(countdownInterval)
                         break
                 }
@@ -136,7 +139,6 @@ navigator.mediaDevices.getUserMedia(constraintObj)
 .catch(function(err) { 
     console.log(err.name, err.message) 
 })
-
 /*********************************
 getUserMedia returns a Promise
 resolve - returns a MediaStream Object
